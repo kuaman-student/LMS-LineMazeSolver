@@ -15,10 +15,10 @@ Autonomous line-maze robot architecture for **Techfest Meshmerize (IIT Bombay)**
 
 | Item | Cost (₹) | Details |
 | :--- | :---: | :--- |
-| **Components (16 items)** | ₹6,597.10 | Core setup + pit spares (dual ESP32, dual LiPo, extra driver) |
-| **Shipping** | ₹200.00 | Priority Air to IIT Mandi (PIN 175005) |
-| **Contingency (25%)** | ₹1,649.28 | Test track tape (30mm vinyl), spacers, emergency buffer |
-| **Total Project Cost** | **₹8,446.38** | **₹1,553.62 safely under the ₹10,000 limit** ✅ |
+| **Components (16 items)** | ₹8,056.10 | Core setup + pit spares (dual ESP32, dual LiPo, extra driver) |
+| **Shipping** | ₹400.00 | Priority Air to IIT Mandi (PIN 175005) |
+| **Contingency (10%)** | ₹805.61 | Test track tape (30mm vinyl), spacers, emergency buffer |
+| **Total Project Cost** | **₹9,261.71** | **₹738.28 safely under the ₹10,000 limit** ✅ |
 
 ---
 
