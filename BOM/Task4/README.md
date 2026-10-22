@@ -79,6 +79,13 @@ Robot at 500 RPM ──► Line sensors detect 90° junction
 
 * Common Ground (GND) is shared across all modules.
 ```
+---
+
+## 📓 Handwritten Notes
+
+| Undestanding Basics of BOM |
+|:---:|
+| ![Note 1](../../docs/Handwritten%20Notes/Task4/image1.png) |
 
 ---
 
