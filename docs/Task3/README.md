@@ -6,6 +6,11 @@
 
 ---
 
+## Desmos Graphs that i made during learning : 
+* **P only:** [**`P only`**](https://www.desmos.com/calculator/9ce3jtmgkn)
+* **P only:** [**`PI controller`**](https://www.desmos.com/calculator/4cdnagwpzi)
+* **P only:** [**`PID controller`**](https://www.desmos.com/calculator/xrlmk854sx)
+
 ## 🧭 System Pipeline Overview
 
 ```text
