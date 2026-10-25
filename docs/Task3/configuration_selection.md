@@ -57,6 +57,6 @@ Setting **$K_i = 0$** eliminates memory lag completely, allowing the robot to tr
 
 ## 🤖 Credits & References
 
-- 📚 **Reference:** [Feedback Systems by Åström & Murray (Caltech) — Section 10.4: Integrator Windup](https://fbswiki.org/wiki/index.php/Feedback_Systems)
+- 📚 **Reference:** [Anti windup for PID control](https://www.youtube.com/watch?v=NVLXCwc8HzM&list=PLn8PRpmsu08pQBgjxYFXSsODEF3Jqmm-y&index=2)
 - 🛠️ **Author:** Aman Kumar
 - 📝 **Format:** Structured for Task 3 deliverable review
