@@ -65,8 +65,10 @@ For an **unknown line-maze**, theoretical optimality must yield to physical elec
 
 1. **The Wheel-Slip Barrier:**  
    Brushed DC motors accelerating at 500 RPM generate micro-slip against smooth vinyl tracks. While optical wheel encoders track motor shaft rotations, mechanical slip introduces cumulative dead-reckoning drift:
-   $$\Delta \vec{P}_{\text{error}} = \int_{0}^{t} \mathbf{R}(\theta) \cdot \vec{v}_{\text{slip}}(\tau)\, d\tau$$
-   Under DFS, an accumulated error of just $30\,\text{mm}$ causes the robot to misidentify a newly discovered junction as an existing node, corrupting the adjacency tree. LSRB uses purely topological line references, remaining immune to distance errors.
+
+$$\Delta \vec{P}_{\text{error}} = \int_{0}^{t} \mathbf{R}(\theta) \cdot \vec{v}_{\text{slip}}(\tau) \, d\tau$$
+
+   Under DFS, an accumulated error of just $30\text{ mm}$ causes the robot to misidentify a newly discovered junction as an existing node, corrupting the adjacency tree. LSRB uses purely topological line references, remaining immune to distance errors.
 
 2. **Topological Invariant of Simply Connected Mazes:**  
    A line-maze without loops forms a topological tree graph ($|E| = |V| - 1$). In such a graph:
@@ -78,9 +80,9 @@ For an **unknown line-maze**, theoretical optimality must yield to physical elec
 
 ---
 
-## 🛡️ 3. Viva & Interview Defense: "Why Not Dijkstra or A*?"
+## 🛡️ 3. "Why Not Dijkstra or A*?"
 
-Interviewers frequently probe: *"Why rely on heuristic wall-following when Dijkstra or A\* computes provably shortest paths?"* The mathematical counters are clear:
+*"Why rely on heuristic wall-following when Dijkstra or A\* computes provably shortest paths?"* The mathematical counters are clear:
 
 ```text
                   Dijkstra / A* Limitations in Unknown Mazes
@@ -129,4 +131,4 @@ Interviewers frequently probe: *"Why rely on heuristic wall-following when Dijks
 - 📄 **Cormen, Leiserson, Rivest, Stein (CLRS):** *Introduction to Algorithms* — Chapter 22 (Elementary Graph Algorithms: DFS).
 - 📄 **Pololu Robotics:** [3pi Robot Maze Solving Logic & Dead-End Elimination](https://www.pololu.com/docs/0J21/8.a)
 - 📄 **IEEE Transactions on Robotics:** *Error Propagation in Odometry-Based Mobile Mapping*.
-- 🛠️ **Author:** Aman Kumar
+- 🛠️ **Author:** Aman Kumar 

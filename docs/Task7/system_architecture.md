@@ -50,12 +50,12 @@ B. MECHANICAL BUMP / LOOSE PIN (Spatial Outlier)
    * As the robot steers, analog intensity transfers smoothly:
      $$S_i \text{ decreases} \implies S_{i+1} \text{ increases}$$
    * The spatial gradient between neighbors remains bounded:
-     $$|S_i - S_{i \pm 1}| < \Delta_{\text{spatial\_max}}$$
+     $$|S_i - S_{i \pm 1}| < \Delta_{\text{spatial, max}}$$
 
 2. **Intermittent Fault / Loose Wire (Spatial Outlier):**
    * A mechanical vibration or loose pin causes a single channel to drop to $0$ (open-circuit pull-down) or spike to $4095$ (floating rail) in $< 5\text{ ms}$.
    * **The Diagnostic Invariant:** If channel $S_i$ abruptly plummets while both immediate neighbors $S_{i-1}$ and $S_{i+1}$ remain illuminated ($> 300$), **channel $S_i$ is flagged as mechanically/electrically faulty**:
-     $$\text{Fault Flag } F_i = 1 \iff \left( |S_i[k] - S_i[k-1]| > 400 \right) \;\land\; \left( \frac{S_{i-1} + S_{i+1}}{2} > 300 \right)$$
+     $$\text{Fault Flag } F_i = 1 \iff \left( |S_i[k] - S_i[k-1]| > 400 \right) \land \left( \frac{S_{i-1} + S_{i+1}}{2} > 300 \right)$$
 
 ---
 
@@ -126,7 +126,7 @@ $TLM,<TIMESTAMP_MS>,<S1>,<S2>,<S3>,<S4>,<S5>,<S6>,<S7>,<S8>,<FAULT_MASK>*<CHECKS
 No custom app development is required; standard diagnostic tools provide immediate out-of-the-box operation:
 
 ```text
-                     [ ESP32 Robot Transmitting Over Air ]
+                      [ ESP32 Robot Transmitting Over Air ]
                                        │
                       ┌────────────────┴────────────────┐
                       ▼                                 ▼
@@ -141,14 +141,14 @@ No custom app development is required; standard diagnostic tools provide immedia
 ```
 
 ### Option A: Mobile Phone Blackbox (Android)
-* **Application:** *Serial Bluetooth Terminal* (by Kai Morich).
-* **Operation:** Connects via Bluetooth RFCOMM. 
-* **Logging:** Writes raw CSV frames with millisecond precision directly to internal storage (`telemetry_run1.csv`) for post-run analysis.
+- **Application:** *Serial Bluetooth Terminal* (by Kai Morich).
+- **Operation:** Connects via Bluetooth RFCOMM. 
+- **Logging:** Writes raw CSV frames with millisecond precision directly to internal storage (`telemetry_run1.csv`) for post-run analysis.
 
 ### Option B: Pit-Lane Laptop (Windows / Linux / macOS)
-* **Application:** *Arduino IDE 2.0 Serial Plotter* or *PuTTY*.
-* **Operation:** Pairs as standard Bluetooth serial link (`COMx` or `/dev/rfcomm0`).
-* **Visual Graphing:** Comma-separated channel values automatically render as eight distinct color-coded curves. A faulty sensor instantly appears as a dramatic vertical drop down to zero, confirming the culprit pin in real time.
+- **Application:** *Arduino IDE 2.0 Serial Plotter* or *PuTTY*.
+- **Operation:** Pairs as standard Bluetooth serial link (`COMx` or `/dev/rfcomm0`).
+- **Visual Graphing:** Comma-separated channel values automatically render as eight distinct color-coded curves. A faulty sensor instantly appears as a dramatic vertical drop down to zero, confirming the culprit pin in real time.
 
 ---
 

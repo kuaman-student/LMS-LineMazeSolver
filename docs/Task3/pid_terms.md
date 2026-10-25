@@ -26,7 +26,7 @@ $$u(t) = \underbrace{K_p \cdot e(t)}_{\text{React to Present}} + \underbrace{K_i
 
 ## 🔍 Detailed Term Breakdown
 
-### 1. 🔹 Proportional Term ($P = K_p \cdot e(t)$) — *"Present Reaction"*
+### 1. 🔹 Proportional Term ($$P = K_p e(t)$$) — *"Present Reaction"*
 * **Analogy:** Centering spring ($F = -kx$).
 * **Robot Behavior:** The further the robot shifts from the center line, the harder $P$ commands the wheels to steer back.
 * **Limitation:** $P$ cannot counteract rotational momentum ($J \cdot \omega$). At 500 RPM, when the robot reaches the center line ($e = 0$), momentum carries it right past the line, causing continuous **fish-tailing / hunting** (side-to-side oscillation).

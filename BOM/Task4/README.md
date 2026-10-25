@@ -88,6 +88,7 @@ Robot at 500 RPM ──► Line sensors detect 90° junction
 ================================ COMMON GROUND (GND) ================================
 * All modules (Battery, Driver, Motors, Buck Converter, ESP32, Sensors, LED) share GND.
 ---
+```
 
 ## 📓 Handwritten Notes
 
