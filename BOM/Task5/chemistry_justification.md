@@ -6,7 +6,7 @@ Comparative evaluation and trade-off analysis justifying the selection of a **7.
 
 ## 🎯 Benchmark Summary
 
-```
+```text
                       Battery Architecture Decision
                                     │
         ┌───────────────────────────┴───────────────────────────┐
@@ -44,7 +44,7 @@ Comparative evaluation and trade-off analysis justifying the selection of a **7.
 
 The C-rating defines safe continuous discharge relative to capacity:
 
-$$I_{\text{max\_continuous}} = C_{\text{capacity}} \times C_{\text{rating}}$$
+$$I_{\text{max}} = C_{\text{capacity}} \times C_{\text{rating}}$$
 
 For our selected Orange $1500\text{ mAh}$ $25\text{C}$ LiPo:
 
@@ -62,18 +62,18 @@ $$\text{Discharge Safety Margin} = \frac{I_{\text{max}}}{I_{\text{stall}}} = \fr
 
 When motors draw transient current surges, terminal voltage sags across the battery's internal resistance ($R_{\text{int}}$):
 
-$$V_{\text{terminal}} = V_{\text{open\_circuit}} - (I_{\text{load}} \cdot R_{\text{int}})$$
+$$V_{\text{terminal}} = V_{\text{OC}} - (I_{\text{load}} \cdot R_{\text{int}})$$
 
 $$\Delta V_{\text{sag}} = I_{\text{load}} \cdot R_{\text{int}}$$
 
 #### Under Worst-Case Dual Stall ($I_{\text{stall}} = 2.270\text{ A}$):
 
-* **LiPo Configuration:**
+- **LiPo Configuration:**
   $$\Delta V_{\text{sag(LiPo)}} = 2.270\text{ A} \times 0.015\,\Omega = \mathbf{0.034\text{ V}}$$
   * Terminal voltage dips from $7.400\text{ V} \to 7.366\text{ V}$.
   * The MP1584EN step-down buck converter sees an uninterrupted input rail, maintaining a rock-solid $5.0\text{ V}$ and $3.3\text{ V}$ supply.
 
-* **18650 Li-ion Sled Configuration:**
+- **18650 Li-ion Sled Configuration:**
   $$\Delta V_{\text{sag(Li-ion)}} = 2.270\text{ A} \times 0.190\,\Omega = \mathbf{0.431\text{ V}}$$
   * Terminal voltage plummets from $7.400\text{ V} \to 6.969\text{ V}$.
   * Combined with high-frequency $L \cdot \frac{di}{dt}$ inductive motor noise, this massive transient drop induces ripple that passes through low-cost regulators, triggering the **ESP32 Internal Brownout Detector ($V_{\text{threshold}} \approx 2.8\text{ V}$)** and rebooting the robot mid-run.
@@ -86,17 +86,17 @@ Maze solving at 500 RPM requires rapid angular acceleration during $90^\circ$ tu
 
 $$J = m \cdot r^2$$
 
-* **LiPo Pouch ($\approx 85\text{ g}$):** 
+- **LiPo Pouch ($\approx 85\text{ g}$):** 
   Flat $14\text{ mm}$ thickness mounts directly flush to the bottom acrylic plate between the drive wheels. This achieves an **ultra-low Center of Gravity (CG)**, eliminating chassis body roll and tire unweighting.
-* **18650 Pack ($\approx 120\text{ g}$):** 
+- **18650 Pack ($\approx 120\text{ g}$):** 
   Dual cylindrical cells ($18\text{ mm}$ diameter $\times 65\text{ mm}$ length) plus plastic carrier sled require elevated mounting. This raises the center of mass, increasing rotational momentum ($J$) and causing the robot to skid or overturn during high-speed pivot turns.
 
 ---
 
 ### 4. 🔹 Mechanical Failure Mode: Contact Bounce
 
-* **18650 Sled Risk:** Typical battery holders use coil springs to hold cells in place. When the robot hits floor seams or arena joints at high speed, spring vibration momentarily breaks physical contact for $1 - 5\text{ ms}$ (**contact chatter**), causing instant system power-down.
-* **LiPo Reliability:** The LiPo features factory spot-welded cell tabs terminated in a locking **high-current XT60 connector**, guaranteeing zero intermittent disconnects under severe vibration.
+- **18650 Sled Risk:** Typical battery holders use coil springs to hold cells in place. When the robot hits floor seams or arena joints at high speed, spring vibration momentarily breaks physical contact for $1 - 5\text{ ms}$ (**contact chatter**), causing instant system power-down.
+- **LiPo Reliability:** The LiPo features factory spot-welded cell tabs terminated in a locking **high-current XT60 connector**, guaranteeing zero intermittent disconnects under severe vibration.
 
 ---
 
@@ -111,6 +111,6 @@ $$J = m \cdot r^2$$
 
 ## 🔗 Related Documentation
 
-* ⚡ **Part 1:** [Current Draw Estimation & Power Budget](./current_draw_estimation.md)
-* ⏱️ **Part 2:** [Battery Runtime Calculations & Derating Analysis](./runtime_calculation.md)
-* 📊 **Spreadsheet Model:** - [`Power_Budget.xlsx`](https://docs.google.com/spreadsheets/d/1vCYHayypkr-nruddL1RVg_CO_KTvek1Pv8IVOfRQMn0/edit?usp=sharing)
+- ⚡ **Part 1:** [Current Draw Estimation & Power Budget](./current_draw_estimation.md)
+- ⏱️ **Part 2:** [Battery Runtime Calculations & Derating Analysis](./runtime_calculation.md)
+- 📊 **Spreadsheet Model:** [`Power_Budget.xlsx`](https://docs.google.com/spreadsheets/d/1vCYHayypkr-nruddL1RVg_CO_KTvek1Pv8IVOfRQMn0/edit?usp=sharing)

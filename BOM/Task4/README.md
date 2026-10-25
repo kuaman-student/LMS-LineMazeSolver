@@ -53,33 +53,40 @@ Robot at 500 RPM ──► Line sensors detect 90° junction
 
 ---
 
-## 🔌 Power Architecture
+## 🔌 Power & Signal Architecture
 
 - ⚡ **Interactive Power Diagram:** [Draw.io Live Power Block Diagram](https://drive.google.com/file/d/1fKkfYH_CU_g1Yqtz-ct_hp4HrwZmPFUk/view?usp=sharing)
 
 ```text
-[ 2S LiPo (7.4V / 8.4V Peak) ] ──► [ SPST Master Switch ] (Rule 2)
-                                           │
-         ┌─────────────────────────────────┴─────────────────────────────────┐
-         ▼ (VBAT: 7.4V Unregulated)                                          ▼
-┌─────────────────────────┐                                ┌───────────────────────────────────┐
-│ TB6612FNG (VM Pin)      │                                │ MP1584 Buck Converter (7.4V ➔ 5V) │
-│ └─► Left & Right Motors │                                └─┬─────────────────────────────────┘
-└─────────────────────────┘                                  │ (Clean 5.0V)
-                                             ┌───────────────┴───────────────┐
-                                             ▼                               ▼
-                                    ┌─────────────────┐             ┌─────────────────┐
-                                    │ ESP32 (VIN Pin) │             
-                                    │ QTR-8A IR Array │
-                                    └────────┬────────┘             └─────────────────┘
-                                             │
-                       ┌─────────────────────┴─────────────────────┐
-                       ▼ (3.3V Logic)                              ▼ (GPIO Output)
-              [ TB6612FNG Control ]                    [ 220Ω Resistor + Red LED ]
-              (PWM, Direction pins)                    (Rule 3: End-Zone Indicator)
+[ 2S LiPo Battery: 7.4V Nom / 8.4V Peak ]
+                   │
+                   ▼
+       [ SPST Master Rocker Switch ] (Rule 2 Compliance)
+                   │
+         ┌─────────┴───────────────────────────────────────────────────────┐
+         ▼ (VBAT: 7.4V - 8.4V Unregulated)                                 ▼
+┌──────────────────────────────────────┐                ┌──────────────────────────────────────┐
+│       TB6612FNG Motor Driver         │                │     Mini MP1584EN Buck Converter     │
+│             (VM Pin)                 │                │       (Step-Down to 5.0V Reg.)       │
+└──────────────────┬───────────────────┘                └──────────────────┬───────────────────┘
+                   │                                                       │
+                   ▼ (Motor Outputs)                                       │ (5.0V Regulated Rail)
+┌──────────────────────────────────────┐                   ┌───────────────┴───────────────┐
+│       Left & Right N20 Motors        │                   ▼                               ▼
+└──────────────────────────────────────┘        ┌─────────────────────┐         ┌─────────────────────┐
+                                                │   ESP32 DevKit V1   │         │    Pololu QTR-8A    │
+                                                │      (VIN Pin)      │         │   8-Ch IR Array     │
+                                                └──────────┬──────────┘         └──────────┬──────────┘
+                                                           │                               │
+                                  ┌────────────────────────┴─────────┐                     │ (Analog/GPIO)
+                                  ▼ (3.3V Logic PWM / DIR)           ▼ (GPIO Output)       ▼
+                       ┌──────────────────────┐           ┌────────────────────┐   ┌───────────────┐
+                       │ TB6612FNG Logic Ctrl │           │ 220Ω + Red LED     │◄──┤ ESP32 ADC Pins│
+                       │ (PWMA, PWMB, IN1-4)  │           │ (Rule 3 End-Zone)  │   └───────────────┘
+                       └──────────────────────┘           └────────────────────┘
 
-* Common Ground (GND) is shared across all modules.
-```
+================================ COMMON GROUND (GND) ================================
+* All modules (Battery, Driver, Motors, Buck Converter, ESP32, Sensors, LED) share GND.
 ---
 
 ## 📓 Handwritten Notes
@@ -97,3 +104,12 @@ Robot at 500 RPM ──► Line sensors detect 90° junction
 - ⚡ **Interactive Power Diagram:** [Draw.io Live Power Block Diagram](https://drive.google.com/file/d/1fKkfYH_CU_g1Yqtz-ct_hp4HrwZmPFUk/view?usp=sharing)
 - 📝 **Documentation:** Prepared with assistance from Gemini
 - 🔍 **Verification:** Verified against Toshiba TB6612FNG, ST L298N, and Espressif datasheets
+
+
+
+
+
+
+
+
+

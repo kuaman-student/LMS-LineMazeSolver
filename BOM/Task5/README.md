@@ -2,8 +2,7 @@
 
 **Techfest Meshmerize — Autonomous Line-Maze Solver**  
 **Target Platform:** ESP32-WROOM-32 | 2x GA12-N20 (500 RPM) | Orange 7.4V 2S 1500mAh 25C LiPo  
-**Author:** Aman Kumar (IIT Mandi)  
-**Deliverable Weight:** 30 Points
+**Author:** Aman Kumar
 
 ---
 
@@ -22,7 +21,7 @@ This directory contains the complete electrical power characterization, runtime 
    │                               │                               │
    └───────────────────────────────┼───────────────────────────────┘
                                    ▼
-              [ assets/Task5_Power_Budget_and_Battery.xlsx ]
+              [ Power Budget.xlsx ]
 ```
 
 ---
@@ -56,13 +55,6 @@ This directory contains the complete electrical power characterization, runtime 
 
 ---
 
-## 📊 Interactive Artifacts
-
-- 📥 **Interactive Excel Workbook:** [`Task5_Power_Budget_and_Battery.xlsx`](https://docs.google.com/spreadsheets/d/1vCYHayypkr-nruddL1RVg_CO_KTvek1Pv8IVOfRQMn0/edit?usp=sharing)  
-  *(Contains dynamic `SUM`, `V*I`, `DoD`, and conditional formatting for all load scenarios)*.
-
----
-
 ## 📚 References & Authority Sources
 
 1. **Battery University (Isidor Buchmann):**  
@@ -70,3 +62,11 @@ This directory contains the complete electrical power characterization, runtime 
    - [BU-205: Types of Lithium-ion](https://batteryuniversity.com/article/bu-205-types-of-lithium-ion)
 2. **Espressif Systems:** [ESP32 Hardware Design Guidelines — Power Scheme & Brownout Detection](https://docs.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32/esp-hardware-design-guidelines-en-master-esp32.pdf)
 3. **Toshiba Semiconductor:** [TB6612FNG Motor Driver Electrical Characteristics Datasheet](https://toshiba.semicon-storage.com/info/TB6612FNG_datasheet_en_20141001.pdf?did=10660&prodName=TB6612FNG)
+
+---
+
+## 🤖 Credits
+
+- 🛠️ **Hardware Architecture & BOM:** Aman Kumar
+- 📊 **Spreadsheet:** [Live Google Sheet](https://docs.google.com/spreadsheets/d/1vCYHayypkr-nruddL1RVg_CO_KTvek1Pv8IVOfRQMn0/edit?usp=sharing)
+- 📝 **Documentation:** Prepared with assistance from Gemini
